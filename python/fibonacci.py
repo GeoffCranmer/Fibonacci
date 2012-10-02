@@ -46,4 +46,10 @@ def lucas_recursive(n):
     elif n > 1:
         return lucas_recursive(n - 1) + lucas_recursive(n - 2)
     else:
-        return lucas_recursive(n + 2) - lucas_recursive(n + 1)
+        return lucas_recursive(n + 2) - lucas_recursive(n + 1)  
+
+def golomb_recursive(n):
+    if n == 1:
+        return 1
+    else:
+        return 1 + golomb_recursive(n - golomb_recursive(golomb_recursive(n - 1)))

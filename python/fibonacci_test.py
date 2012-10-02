@@ -45,11 +45,19 @@ class TestLucasRecursive(unittest.TestCase):
         self.assertEqual(fibonacci.lucas_recursive(-2), 3)
         self.assertEqual(fibonacci.lucas_recursive(-8), 47)
 
-        
+class TestGolombRecursive(unittest.TestCase):
+    
+    def runTest(self):
+        self.assertEqual(fibonacci.golomb_recursive(1), 1)
+        self.assertEqual(fibonacci.golomb_recursive(2), 2)
+        self.assertEqual(fibonacci.golomb_recursive(8), 4)
+
+
 if __name__ == '__main__':
     suite_fibonacci_queue = unittest.TestLoader().loadTestsFromTestCase(TestFibonacciQueue)
     suite_fibonacci_recursive = unittest.TestLoader().loadTestsFromTestCase(TestFibonacciRecursive)
     suite_lucas_queue = unittest.TestLoader().loadTestsFromTestCase(TestLucasQueue)
     suite_lucas_recursive = unittest.TestLoader().loadTestsFromTestCase(TestLucasRecursive)
-    suite_all = unittest.TestSuite([suite_fibonacci_queue, suite_fibonacci_recursive, suite_lucas_queue, suite_lucas_recursive])
+    suite_golomb_recursive = unittest.TestLoader().loadTestsFromTestCase(TestGolombRecursive)
+    suite_all = unittest.TestSuite([suite_fibonacci_queue, suite_fibonacci_recursive, suite_lucas_queue, suite_lucas_recursive, suite_golomb_recursive])
     unittest.TextTestRunner(verbosity=2).run(suite_all)
